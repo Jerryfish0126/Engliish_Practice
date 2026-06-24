@@ -1,256 +1,152 @@
 const questions = [
     {
-        q: "1. The package mailed from New York arrived broken.",
+        q: "1. The fresh apple tasted sweet.",
         options: ["S + V", "S + V + C", "S + V + O", "S + V + O + C"],
         answer: 1,
-        why: "【陷阱：分詞修飾 vs. 補語辨析】mailed from New York 是過去分詞片語，當形容詞修飾主詞 The package。arrived 在此作為連綴動詞（類似 turned out to be），broken 是形容詞，用來補充說明主詞包裹的狀態。故為 S + V + C 句型。"
+        why: "【核心：連綴動詞句型】tasted 是連綴動詞（嚐起來），後面接形容詞 sweet（甜的）來補充說明主詞蘋果的狀態，作為主詞補語（C）。故為 S + V + C。"
     },
     {
-        q: "2. The heavy rain kept the enthusiastic fans waiting outside the stadium for hours.",
+        q: "2. The heavy rain kept the students waiting inside the classroom.",
         options: ["S + V + O", "S + V + O + O", "S + V + O + C", "S + V"],
         answer: 2,
-        why: "【陷阱：時間與空間副詞的干擾】fans 是受詞（O），而 waiting outside... 是現在分詞片語，用來描述受詞粉絲當時正在進行的動作，作受詞補語（C）。for hours 為時間副詞修飾語（M），不計入核心句型。故為 S + V + O + C。"
+        why: "【核心：受詞補語】students 是受詞（O），後面的 waiting（正在等待）是現在分詞，用來形容受詞的動作狀態，作受詞補語（C）。故為 S + V + O + C。"
     },
     {
-        q: "3. A beautiful watch was bought for the graduating student by his proud parents.",
+        q: "3. A new bike was bought for the boy by his father.",
         options: ["S + V + O + O", "S + V + O", "S + V", "S + V + C"],
         answer: 2,
-        why: "【陷阱：雙賓動詞改為被動態】這題原本的主動態是 Parents bought the student a watch (S+V+O+O)。但改為被動態時，直接受詞 a watch 變成了主詞，後方的 for the student 與 by his parents 全變成了介系詞片語（修飾語 M）。被動態的動詞 was bought 不再能接兩個受詞，句子骨架僅剩 S + V。答案選 C。"
+        why: "【核心：被動態的骨架】這句的主動態是 Father bought the boy a bike (S+V+O+O)。但改為被動態時，物（A new bike）變成了主詞，後面的 for the boy 和 by his father 都變成了介系詞片語（修飾語 M），不計入核心，所以只剩下 S + V。"
     },
     {
-        q: "4. The CEO found the newly implemented marketing strategy highly effective.",
+        q: "4. The teacher found the English test very easy.",
         options: ["S + V + O", "S + V + O + C", "S + V + O + O", "S + V + C"],
         answer: 1,
-        why: "【陷阱：副詞修飾形容詞作補語】found 在此非「尋找」，而是「發現/認為」。受詞是 strategy（newly implemented 為其形容詞修飾語）；effective 是形容詞，用以修飾受詞 strategy，擔任受詞補語（C）；highly 是副詞修飾 effective。故為 S + V + O + C。"
+        why: "【核心：發現某物如何】found 在此意思是「覺得/發現」。test 是受詞（O），easy（簡單的）是形容詞，用來修飾受詞測驗，擔任受詞補語（C）。故為 S + V + O + C。"
     },
     {
-        q: "5. Her voice sounds like that of a professional opera singer.",
+        q: "5. Her voice sounds like a professional singer.",
         options: ["S + V", "S + V + C", "S + V + O", "S + V + O + C"],
         answer: 1,
-        why: "【陷阱：連綴動詞接介系詞片語】sounds 是連綴動詞，後面不能直接接名詞，須加上 like。像 like... 這種介系詞片語在此處在功能上等同於形容詞，用來修飾主詞，故作主詞補語（C）。句型為 S + V + C。"
+        why: "【核心：連綴動詞 + like】sounds 是連綴動詞，後面加上 like（像...一樣）構成的介系詞片語，在功能上等同於形容詞，用來修飾主詞，作主詞補語（C）。句型為 S + V + C。"
     },
     {
-        q: "6. There remains an unresolved issue concerning the new company policy.",
+        q: "6. There remains an old house near the beautiful river.",
         options: ["S + V", "S + V + C", "S + V + O", "S + V + O + C"],
         answer: 0,
-        why: "【陷阱：虛主詞引導句】There 是引導詞（虛主詞），真正的物理主詞是後面的 an unresolved issue。remains 是不及物動詞（V），concerning... 是分詞片語修飾 issue。整個結構本質上就是「主詞 + 動詞」，故為 S + V。"
+        why: "【核心：There 引導句】There 是虛主詞，真正的物理主詞是後面的 an old house。remains（依然存在）是不及物動詞（V），near the river 是地方修飾語（M）。本質上就是「主詞 + 不及物動詞」，故為 S + V。"
     },
     {
-        q: "7. The company declared the contract null and void due to a technical breach.",
+        q: "7. The judge declared the man innocent after the trial.",
         options: ["S + V + O", "S + V + O + O", "S + V + O + C", "S + V + C"],
         answer: 2,
-        why: "【陷阱：法律雙重形容詞補語】declared 為及物動詞，contract 是受詞。null and void（無效的）是形容詞片語，用來補充說明契約的狀態，屬於受詞補語（C）。due to... 是原因副詞片語。故為 S + V + O + C。"
+        why: "【核心：宣告某人處於某狀態】declared 是動詞，the man 是受詞（O）。innocent（無罪的）是形容詞，用來補充說明受詞的狀態，屬於受詞補語（C）。故為 S + V + O + C。"
     },
     {
-        q: "8. The software update made the computer run significantly faster than before.",
+        q: "8. The funny movie made the children laugh happily.",
         options: ["S + V + O", "S + V + O + O", "S + V + O + C", "S + V"],
         answer: 2,
-        why: "【陷阱：使役動詞與原形動詞補語】made 為使役動詞，computer 是受詞。後面的 run 雖然是動詞原形，但在使役動詞句型中，它帶領的片語是作為「受詞補語」（C），表示受詞所做的動作。故為 S + V + O + C。"
+        why: "【核心：使役動詞用法】made 是使役動詞，the children 是受詞（O）。後面的原形動詞 laugh（笑）是作為「受詞補語」（C），表示受詞所做的動作。故為 S + V + O + C。"
     },
     {
-        q: "9. With hard work and dedication, the young entrepreneur became a billionaire overnight.",
+        q: "9. After many years of hard work, Jason became a rich businessman.",
         options: ["S + V + O", "S + V + C", "S + V", "S + V + O + O"],
         answer: 1,
-        why: "【陷阱：首尾修飾語干擾】句首的 With... 是伴隨狀語（M），overnight 是時間副詞（M）。主幹為 the young entrepreneur (S) became (V) a billionaire (C)。因為 billionaire 指的就是主詞本身，身分對等，故為名詞作主詞補語。句型為 S + V + C。"
+        why: "【核心：身分轉變的連綴動詞】句首的 After... 是時間修飾語（M）。主幹為 Jason (S) became (V) a rich businessman (C)。因為 businessman 指的就是主詞本身，身分對等，屬於名詞作主詞補語。句型為 S + V + C。"
     },
     {
-        q: "10. The chef tasted the soup carefully before serving it to the guests.",
+        q: "10. The mother tasted the hot soup carefully.",
         options: ["S + V + C", "S + V + O", "S + V", "S + V + O + C"],
         answer: 1,
-        why: "【💥高級陷阱：連綴動詞 vs. 一般動詞】tasted 雖然常作連綴動詞（如 The soup tastes good -> SVC）。但在此句中，主詞是人（The chef），且後面有副詞 carefully 修飾動作，代表廚師正主動執行「品嚐」這個動作。此時 tasted 是一般及物動詞，soup 是受詞。故為 S + V + O！"
+        why: "【💥初級陷阱：動詞意涵辨析】tasted 如果意思是「吃起來（如 The soup tastes good）」，則是連綴動詞 (SVC)；但在此句中，主詞是人（The mother），且有副詞 carefully 修飾，代表媽媽正主動執行「品嚐」這個動作。此時 tasted 是一般及物動詞，soup 是受詞。故為 S + V + O！"
     },
     {
-        q: "11. The unexpected turn of events left him speechless for a long time.",
+        q: "11. The sad story left everyone crying in the room.",
         options: ["S + V + O", "S + V + O + C", "S + V + C", "S + V + O + O"],
         answer: 1,
-        why: "【陷阱：使役變形動詞】left 在此並非「離開」或「留下東西」，而是「使...處於某狀態」。him 是受詞，speechless（說不出話的）是形容詞，用來修飾受詞 him 當時的狀態，作受詞補語（C）。故為 S + V + O + C。"
+        why: "【核心：讓某人保持某狀態】left 在此並非「離開」，而是「使...處於某狀態」。everyone 是受詞（O），crying 是現在分詞，用來修飾受詞當時的動作狀態，作受詞補語（C）。故為 S + V + O + C。"
     },
     {
-        q: "12. The committee considered him the most suitable candidate for the position.",
+        q: "12. We all consider Tom our best friend.",
         options: ["S + V + O + O", "S + V + O + C", "S + V + O", "S + V + C"],
         answer: 1,
-        why: "【陷阱：雙名詞接應（受詞 vs. 補語）】considered 是不完全及物動詞，him 是受詞。後面的 the most suitable candidate（最合適的人選）雖然是名詞，但因為「他 ＝ 最合適人選」，屬於身分對等，故為名詞作受詞補語（C）。不是雙受詞。故為 S + V + O + C。"
+        why: "【核心：名詞作受詞補語】consider（認為）是不完全及物動詞，Tom 是受詞（O）。後面的 our best friend 是名詞，因為「Tom ＝ 我們最好的朋友」，身分對等，故為名詞作受詞補語（C）。不是雙受詞。故為 S + V + O + C。"
     },
     {
-        q: "13. I lent my favorite sci-fi novel to Jane because she loves reading.",
+        q: "13. I lent my favorite comic book to Linda yesterday.",
         options: ["S + V + O + O", "S + V + O", "S + V + O + C", "S + V"],
         answer: 1,
-        why: "【💥高頻陷阱：授與動詞改換介系詞】主動態原本可寫成 I lent Jane my novel (S+V+O+O)。但當直接受詞 novel 被移到前面時，後面的 to Jane 變成了「介系詞片語」，在文法上被視為修飾語（M）。因此核心句型只剩下「我 (S) 借了 (V) 小說 (O)」，為 S + V + O。"
+        why: "【核心：授與動詞改換介系詞】原本可寫成 I lent Linda my book (S+V+O+O)。但當直接受詞 book 被移到前面時，後面的 to Linda 變成了「介系詞片語」，在文法上被視為修飾語（M）。因此核心句型只剩下「我 (S) 借了 (V) 書 (O)」，為 S + V + O。"
     },
     {
-        q: "14. The teacher caught the students cheating on the final exam.",
+        q: "14. The police officer caught the thief stealing a bicycle.",
         options: ["S + V + O", "S + V + O + C", "S + V + C", "S + V + O + O"],
         answer: 1,
-        why: "【陷阱：感官/發現動詞的分詞補語】caught 在此表示發現某人正在做某事。students 是受詞，cheating... 作為現在分詞片語，補充說明受詞正在進行的不當行為，作受詞補語（C）。故為 S + V + O + C。"
+        why: "【核心：感官/發現動詞用法】caught 在此表示當場抓住/發現某人正在做某事。the thief 是受詞（O），stealing... 作為現在分詞片語，補充說明受詞正在進行的動作，作受詞補語（C）。故為 S + V + O + C。"
     },
     {
-        q: "15. The flowers in the garden smell sweet in the early morning.",
+        q: "15. The red roses in the basket smell wonderful.",
         options: ["S + V", "S + V + O", "S + V + C", "S + V + O + C"],
         answer: 2,
-        why: "【陷阱：修飾語夾雜】in the garden（形容詞片語修飾 flowers）以及 in the early morning（副詞片語時間修飾語）皆不計入核心骨架。核心為 Flowers (S) smell (V) sweet (C)，smell 為連綴動詞，sweet 為形容詞作主詞補語。故為 S + V + C。"
+        why: "【核心：連綴動詞與修飾語】in the basket 是形容詞片語，用來修飾主詞 roses。核心骨架為 Roses (S) smell (V) wonderful (C)，smell 為連綴動詞（聞起來），wonderful 為形容詞作主詞補語。故為 S + V + C。"
     },
     {
-        q: "16. Her main goal this year is to obtain a master's degree in computer science.",
+        q: "16. My dream this year is to visit Disneyland in Japan.",
         options: ["S + V + O", "S + V + C", "S + V", "S + V + O + C"],
         answer: 1,
-        why: "【陷阱：不定詞片語的身分轉換】is 是不完全不及物動詞（be動詞）。後面的 to obtain... 是不定詞片語，在名詞功能上等於 her main goal，說明目標的具體內容，作主詞補語（C）。故為 S + V + C。"
+        why: "【核心：不定詞當主詞補語】is 是不完全不及物動詞（be動詞）。後面的 to visit Disneyland... 是不定詞片語，在功能上等於說明主詞 my dream 的具體內容（我的夢想 = 去迪士尼），作主詞補語（C）。故為 S + V + C。"
     },
     {
-        q: "17. The storm blew the old wooden fence down last night.",
+        q: "17. The strong wind blew the old tree down last night.",
         options: ["S + V + O", "S + V + O + C", "S + V", "S + V + C"],
         answer: 1,
-        why: "【陷阱：副詞作受詞補語】fence 是受詞。down 在此是副詞，用來補充說明 fence 遭受風吹之後的「結果狀態」（柵欄倒了），屬於地方副詞作受詞補語（C）。故為 S + V + O + C。"
+        why: "【核心：副詞作受詞補語】tree 是受詞（O）。down 在此是地方副詞，用來補充說明 tree 遭受風吹之後的「結果狀態」（樹倒了），屬於副詞作受詞補語（C）。故為 S + V + O + C。"
     },
     {
-        q: "18. The guide showed the tourists a historic temple located on the mountain.",
+        q: "18. The tour guide showed the tourists a beautiful church.",
         options: ["S + V + O", "S + V + O + O", "S + V + O + C", "S + V + C"],
         answer: 1,
-        why: "【陷阱：經典雙賓動詞】showed 是授與動詞，後方接了兩個名詞：tourists 是接受者（間接受詞 Oi），temple 是被展示的物品（直接受詞 Od）。located... 為分詞修飾 temple。故為標準的 S + V + O + O 句型。"
+        why: " = "【核心：標準雙賓句型】showed 是授與動詞（展示），後方接了兩個受詞：tourists 是接受者（間接受詞 Oi），a beautiful church 是被展示的物品（直接受詞 Od）。故為標準的 S + V + O + O 句型。"
     },
     {
-        q: "19. The small birds flew swiftly across the clear blue sky.",
+        q: "19. The little birds sang happily in the green trees.",
         options: ["S + V", "S + V + C", "S + V + O", "S + V + O + C"],
         answer: 0,
-        why: "【陷阱：副詞與介系詞片語堆疊】flew 是完全不及物動詞（V）。swiftly 是地方/情態副詞（M），across... 是地方副詞片語（M）。兩者皆為修飾語，不影響核心骨架。句子純粹由「主詞 + 動詞」構成，故為 S + V。"
+        why: "【核心：不及物動詞與修飾語】sang 是完全不及物動詞（V）。happily 是情態副詞（M），in the green trees 是地方副詞片語（M）。兩者皆為修飾語，不影響主幹。句子純粹由「主詞 + 動詞」構成，故為 S + V。"
     },
     {
-        q: "20. The sad movie always makes me cry whenever I watch it.",
+        q: "20. The sad song always makes me want to cry.",
         options: ["S + V + O", "S + V + C", "S + V + O + C", "S + V + O + O"],
         answer: 2,
-        why: "【陷阱：使役動詞與原形動詞補語】makes 為使役動詞，me 是受詞。後方的 cry 是原形動詞，用來補充說明受詞（我）所產生的反應動作，作受詞補語（C）。whenever... 引導副詞子句。故為 S + V + O + C。"
+        why: "【核心：使役動詞用法】makes 為使役動詞，me 是受詞（O）。後方的 want 是原形動詞，用來補充說明受詞（我）產生的心理反應，作受詞補語（C）。故為 S + V + O + C。"
     },
     {
-        q: "21. That old, dilapidated house on the corner looks haunted.",
+        q: "21. The old house on the hill looks scary at night.",
         options: ["S + V", "S + V + C", "S + V + O", "S + V + O + C"],
         answer: 1,
-        why: "【陷阱：過去分詞作形容詞補語】looks 是連綴動詞（看起來像）。haunted 在此已轉化為形容詞（鬧鬼的），用來修飾主詞 house 的特質，作主詞補語（C）。故為 S + V + C。"
+        why: "【核心：連綴動詞外觀特徵】looks 是連綴動詞（看起來）。scary（可怕的）是形容詞，用來修飾及說明主詞 house 的特質，作主詞補語（C）。on the hill 是修飾語。故為 S + V + C。"
     },
     {
-        q: "22. The long and exhausting journey made the travelers extremely tired.",
+        q: "22. The long English class made the workers very tired.",
         options: ["S + V + O", "S + V + O + C", "S + V + C", "S + V + O + O"],
         answer: 1,
-        why: "【陷阱：副詞干擾形容詞補語】made 是及物動詞，travelers 是受詞。tired 是形容詞作受詞補語（C），用來描述旅客的狀態；extremely 則是副詞用來修飾 tired。故核心為 S + V + O + C。"
+        why: "【核心：使役動詞接形容詞補語】made 是及物動詞，workers 是受詞（O）。tired 是形容詞作受詞補語（C），用來描述受詞員工們被課堂影響後的疲憊狀態；very 是副詞修飾 tired。故為 S + V + O + C。"
     },
     {
-        q: "23. He painted the kitchen walls white to make the room look brighter.",
+        q: "23. My sister painted her bedroom pink yesterday afternoon.",
         options: ["S + V + O", "S + V + O + O", "S + V + O + C", "S + V + C"],
         answer: 2,
-        why: "【陷阱：動作結果作受詞補語】painted 為動詞，walls 是受詞。white（白色的）是形容詞，指牆壁被油漆過後的「結果狀態」，屬於受詞補語（C）。後方 to make... 是目的狀語（M）。故主幹為 S + V + O + C。"
+        why: "【核心：動作結果作補語】painted 為動詞，bedroom 是受詞（O）。pink（粉紅色的）是形容詞，指房間被漆過之後產生的「結果狀態」，屬於受詞補語（C）。故主幹為 S + V + O + C。"
     },
     {
-        q: "24. The board of directors elected Mary chairperson of the committee.",
+        q: "24. The classmates elected David leader of the class.",
         options: ["S + V + O + O", "S + V + O + C", "S + V + O", "S + V + C"],
         answer: 1,
-        why: "【💥極難陷阱：選任動詞職稱補語】elected 是選任動詞（不完全及物動詞）。Mary 是受詞，chairperson（主席）雖然是名詞，但因為「Mary ＝ 主席」，兩者指的是同一人且具備身分對等關係，因此 chairperson 是作受詞補語（C）。這不是雙受詞！故為 S + V + O + C。"
+        why: "【核心：選任動詞職稱補語】elected 是選任動詞。David 是受詞（O），leader（長官/幹部）雖然是名詞，但因為「David ＝ 班長」，兩者指的是同一人且具備身分對等關係，因此 leader 是作受詞補語（C），而非雙受詞。故為 S + V + O + C。"
     },
     {
-        q: "25. The news that our team won the championship made everyone happy.",
+        q: "25. The good news that we won the game made everyone happy.",
         options: ["S + V + O", "S + V + C", "S + V + O + C", "S + V + O + O"],
         answer: 2,
-        why: "【💥終極陷阱：同位語子句干擾】that our team won... 是一個「同位語子句」，用來補充說明 The news，整個名詞子句與主詞視為一體。真正的動詞是後面的 made，受詞是 everyone，happy 是形容詞作受詞補語（C）。因此句子主要骨架為 S + V + O + C。"
+        why: "【💥初級進階陷阱：同位語引導】that we won the game 是一個同位語子句，用來補充說明 The good news，跟主詞視為一體。真正的動詞是後面的 made，受詞是 everyone，happy 是形容詞作受詞補語（C）。因此主要骨架為 S + V + O + C。"
     }
 ];
-
-// 動態渲染題目
-const container = document.getElementById('questions-container');
-questions.forEach((q, idx) => {
-    let optionsHtml = '';
-    q.options.forEach((opt, optIdx) => {
-        optionsHtml += `
-            <li class="option-item">
-                <label class="option-label" id="label-${idx}-${optIdx}">
-                    <input type="radio" name="q-${idx}" value="${optIdx}">
-                    ${opt}
-                </label>
-            </li>
-        `;
-    });
-
-    const qBlock = document.createElement('div');
-    qBlock.className = 'question-block';
-    qBlock.id = `qblock-${idx}`;
-    qBlock.innerHTML = `
-        <div class="question-text">${q.q}</div>
-        <ul class="options-list">${optionsHtml}</ul>
-        <div class="analysis" id="analysis-${idx}">
-            <strong>🎯 正確答案：${q.options[q.answer]}</strong><br>
-            ${q.why}
-        </div>
-    `;
-    container.appendChild(qBlock);
-});
-
-// 計分功能
-function calculateScore() {
-    let score = 0;
-    let answeredCount = 0;
-
-    // 檢查是否每題都寫了
-    for (let i = 0; i < questions.length; i++) {
-        const selected = document.querySelector(`input[name="q-${i}"]:checked`);
-        if (selected) answeredCount++;
-    }
-
-    if (answeredCount < questions.length) {
-        alert(`您還有 ${questions.length - answeredCount} 題尚未作答，請完成後再行提交！`);
-        return;
-    }
-
-    // 進行計分與著色
-    questions.forEach((q, idx) => {
-        const selected = document.querySelector(`input[name="q-${idx}"]:checked`);
-        const userAns = parseInt(selected.value);
-        const qBlock = document.getElementById(`qblock-${idx}`);
-        const analysisBox = document.getElementById(`analysis-${idx}`);
-
-        // 重設樣式
-        qBlock.classList.remove('correct', 'wrong');
-        
-        // 移除舊的答案標記
-        q.options.forEach((_, optIdx) => {
-            document.getElementById(`label-${idx}-${optIdx}`).classList.remove('correct-ans', 'user-ans');
-        });
-
-        // 標示正確答案
-        document.getElementById(`label-${idx}-${q.answer}`).classList.add('correct-ans');
-
-        if (userAns === q.answer) {
-            score++;
-            qBlock.classList.add('correct');
-        } else {
-            qBlock.classList.add('wrong');
-            document.getElementById(`label-${idx}-${userAns}`).classList.add('user-ans');
-        }
-
-        // 顯示解析
-        analysisBox.style.display = 'block';
-    });
-
-    // 顯示結果面板
-    const resultPanel = document.getElementById('result-panel');
-    const scoreDisplay = document.getElementById('score-display');
-    const commentary = document.getElementById('commentary');
-    
-    resultPanel.style.display = 'block';
-    scoreDisplay.innerHTML = `${score} / ${questions.length} 分`;
-
-    if (score === 25) {
-        commentary.innerHTML = "🎯 太驚人了！25 題全對！你對英文五大句型結構的敏感度已經達到大師級別，出題者的所有陷阱都被你一眼看穿！";
-        commentary.style.color = "var(--success)";
-    } else if (score >= 18) {
-        commentary.innerHTML = "👍 非常優秀！這份考卷極具挑戰性，你能拿到 18 分以上，代表文法底子十分紮實，只要細心檢視錯題解析即可！";
-        commentary.style.color = "var(--primary)";
-    } else if (score >= 12) {
-        commentary.innerHTML = "⚖️ 中規中矩！你掌握了基本句型，但在面對修飾語夾雜、連綴動詞轉變或受詞補語的進階陷阱時容易動搖，多看下方的逐題解析會有大收穫！";
-        commentary.style.color = "orange";
-    } else {
-        commentary.innerHTML = "⚠️ 仍需努力！這份題目確實非常刁鑽。建議仔細閱讀每一題的「深度陷阱解析」，釐清『受詞』與『補語』的核心本質差別。";
-        commentary.style.color = "var(--error)";
-    }
-
-    // 滾動到最上方看分數
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-// 綁定按鈕點擊事件
-document.getElementById('submit-btn').addEventListener('click', calculateScore);
