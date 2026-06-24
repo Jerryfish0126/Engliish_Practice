@@ -75,7 +75,7 @@ const questions = [
         q: "13. I lent my favorite comic book to Linda yesterday.",
         options: ["S + V + O + O", "S + V + O", "S + V + O + C", "S + V"],
         answer: 1,
-        why: "【核心：授與動詞改換介系詞】原本可寫成 I lent Linda my book (S+V+O+O)。但當直接受詞 book 被移到前面時，後面的 to Linda 變成了「介系詞片語」，在文法上被視為修飾語（M）。因此核心句型只剩下「我 (S) 借了 (V) 書 (O)」，為 S + V + O。"
+        why: "【核心：授與動詞改換介系詞】原本可寫成 I lent Linda my book (S+V+O+O)。幕當直接受詞 book 被移到前面時，後面的 to Linda 變成了「介系詞片語」，在文法上被視為修飾語（M）。因此核心句型只剩下「我 (S) 借了 (V) 書 (O)」，為 S + V + O。"
     },
     {
         q: "14. The police officer caught the thief stealing a bicycle.",
@@ -105,7 +105,7 @@ const questions = [
         q: "18. The tour guide showed the tourists a beautiful church.",
         options: ["S + V + O", "S + V + O + O", "S + V + O + C", "S + V + C"],
         answer: 1,
-        why: " = "【核心：標準雙賓句型】showed 是授與動詞（展示），後方接了兩個受詞：tourists 是接受者（間接受詞 Oi），a beautiful church 是被展示的物品（直接受詞 Od）。故為標準的 S + V + O + O 句型。"
+        why: "【核心：標準雙賓句型】showed 是授與動詞（展示），後方接了兩個受詞：tourists 是接受者（間接受詞 Oi），a beautiful church 是被展示的物品（直接受詞 Od）。故為標準的 S + V + O + O 句型。"
     },
     {
         q: "19. The little birds sang happily in the green trees.",
@@ -150,3 +150,98 @@ const questions = [
         why: "【💥初級進階陷阱：同位語引導】that we won the game 是一個同位語子句，用來補充說明 The good news，跟主詞視為一體。真正的動詞是後面的 made，受詞是 everyone，happy 是形容詞作受詞補語（C）。因此主要骨架為 S + V + O + C。"
     }
 ];
+
+// 動態渲染題目
+const container = document.getElementById('questions-container');
+questions.forEach((q, idx) => {
+    let optionsHtml = '';
+    q.options.forEach((opt, optIdx) => {
+        optionsHtml += `
+            <li class="option-item">
+                <label class="option-label" id="label-${idx}-${optIdx}">
+                    <input type="radio" name="q-${idx}" value="${optIdx}">
+                    ${opt}
+                </label>
+            </li>
+        `;
+    });
+
+    const qBlock = document.createElement('div');
+    qBlock.className = 'question-block';
+    qBlock.id = `qblock-${idx}`;
+    qBlock.innerHTML = `
+        <div class="question-text">${q.q}</div>
+        <ul class="options-list">${optionsHtml}</ul>
+        <div class="analysis" id="analysis-${idx}">
+            <strong>🎯 正確答案：${q.options[q.answer]}</strong><br>
+            ${q.why}
+        </div>
+    `;
+    container.appendChild(qBlock);
+});
+
+// 計分功能
+function calculateScore() {
+    let score = 0;
+    let answeredCount = 0;
+
+    for (let i = 0; i < questions.length; i++) {
+        const selected = document.querySelector(`input[name="q-${i}"]:checked`);
+        if (selected) answeredCount++;
+    }
+
+    if (answeredCount < questions.length) {
+        alert(`您還有 ${questions.length - answeredCount} 題尚未作答，請完成後再行提交！`);
+        return;
+    }
+
+    questions.forEach((q, idx) => {
+        const selected = document.querySelector(`input[name="q-${idx}"]:checked`);
+        const userAns = parseInt(selected.value);
+        const qBlock = document.getElementById(`qblock-${idx}`);
+        const analysisBox = document.getElementById(`analysis-${idx}`);
+
+        qBlock.classList.remove('correct', 'wrong');
+        
+        q.options.forEach((_, optIdx) => {
+            document.getElementById(`label-${idx}-${optIdx}`).classList.remove('correct-ans', 'user-ans');
+        });
+
+        document.getElementById(`label-${idx}-${q.answer}`).classList.add('correct-ans');
+
+        if (userAns === q.answer) {
+            score++;
+            qBlock.classList.add('correct');
+        } else {
+            qBlock.classList.add('wrong');
+            document.getElementById(`label-${idx}-${userAns}`).classList.add('user-ans');
+        }
+
+        analysisBox.style.display = 'block';
+    });
+
+    const resultPanel = document.getElementById('result-panel');
+    const scoreDisplay = document.getElementById('score-display');
+    const commentary = document.getElementById('commentary');
+    
+    resultPanel.style.display = 'block';
+    scoreDisplay.innerHTML = `${score} / ${questions.length} 分`;
+
+    if (score === 25) {
+        commentary.innerHTML = "🎯 太驚人了！25 題全對！你對英文五大句型結構的敏感度已經達到大師級別，出題者的所有陷阱都被你一眼看穿！";
+        commentary.style.color = "var(--success)";
+    } else if (score >= 18) {
+        commentary.innerHTML = "👍 非常優秀！這份考卷極具挑戰性，你能拿到 18 分以上，代表文法底子十分紮實，只要細心檢視錯題解析即可！";
+        commentary.style.color = "var(--primary)";
+    } else if (score >= 12) {
+        commentary.innerHTML = "⚖️ 中規中矩！你掌握了基本句型，但在面對修飾語夾雜、連綴動詞轉變或受詞補語的進階陷阱時容易動搖，多看下方的逐題解析會有大收穫！";
+        commentary.style.color = "orange";
+    } else {
+        commentary.innerHTML = "⚠️ 仍需努力！這份題目確實非常刁鑽。建議仔細閱讀每一題的「深度陷阱解析」，釐清『受詞』與『補語』的核心本質差別。";
+        commentary.style.color = "var(--error)";
+    }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+document.getElementById('submit-btn').addEventListener('click', calculateScore);
